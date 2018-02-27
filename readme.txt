@@ -2,9 +2,9 @@
 Contributors: dartiss
 Tags: rainbow, pride, admin bar, gay, lgbt
 Requires at least: 4.6
-Tested up to: 4.9
+Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,10 @@ The technical stuff...
 
 * Designed for both single and multi-site installations
 * PHP7 compatible
+* Passes [WordPress.com VIP](https://vip.wordpress.com) coding standards and fully compatible with their platform
 * Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/pride-bar "Translating WordPress") page**
 * WCAG 2.0 Compliant at AA level
+* Gutenberg ready
 
 Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues.
 
@@ -51,12 +53,15 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 == Changelog ==
 
-[Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
+[Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+
+= 1.0.1 =
+* Enhancement: Code quality enhancements to bring it in line with WordPress.com VIP coding standards
 
 = 1.0 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-* Initial release
+= 1.0.1 =
+* * Now fully compatible with the WordPress.com VIP platform
