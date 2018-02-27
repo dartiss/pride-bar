@@ -10,8 +10,10 @@ The technical stuff...
 
 * Designed for both single and multi-site installations
 * PHP7 compatible
+* Passes [WordPress.com VIP](https://vip.wordpress.com) coding standards and fully compatible with their platform
 * Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/pride-bar "Translating WordPress") page**
 * WCAG 2.0 Compliant at AA level
+* Gutenberg ready
 
 Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues.
 
