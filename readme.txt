@@ -64,4 +64,4 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 == Upgrade Notice ==
 
 = 1.0.1 =
-* * Now fully compatible with the WordPress.com VIP platform
+* Now fully compatible with the WordPress.com VIP platform
