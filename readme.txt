@@ -4,7 +4,7 @@ Tags: rainbow, pride, admin bar, gay, lgbt
 Requires at least: 4.6
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
 
+= 1.0.2 =
+* Enhancement: CSS is now compressed
+* Enhancement: Further code quality enhancements made
+
 = 1.0.1 =
 * Enhancement: Code quality enhancements to bring it in line with WordPress.com VIP coding standards
 
@@ -62,6 +66,9 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+* From Montréal, the week of Montréal Pride, I bring you... some minor enhancements
 
 = 1.0.1 =
 * Now fully compatible with the WordPress.com VIP platform

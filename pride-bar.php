@@ -3,7 +3,7 @@
 Plugin Name: Pride Bar
 Plugin URI: https://wordpress.org/plugins/pride-bar
 Description: Add a rainbow flag design to your admin bar.
-Version: 1.0.1
+Version: 1.0.2
 Author: David Artiss
 Author URI: https://artiss.blog
 Text Domain: pride-bar
@@ -14,8 +14,8 @@ Text Domain: pride-bar
 *
 * Plugin to add a Pride rainbow to your admin bar.
 *
-* @package	pride-bar
-* @since	1.0
+* @package  pride-bar
+* @since    1.0
 */
 
 /**
@@ -23,11 +23,11 @@ Text Domain: pride-bar
 *
 * Add options to plugin meta line
 *
-* @since	1.0
+* @since    1.0
 *
-* @param	string  $links	Current links
-* @param	string  $file	File in use
-* @return   string			Links, now with settings added
+* @param    string  $links  Current links
+* @param    string  $file   File in use
+* @return   string          Links, now with settings added
 */
 
 function pride_bar_plugin_meta( $links, $file ) {
@@ -49,7 +49,7 @@ add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
 *
 * Add Pride Bar CSS before the admin bar render
 *
-* @since	1.0
+* @since    1.0
 */
 
 
@@ -57,7 +57,7 @@ function add_pride_bar() {
 
 	$theme = sanitize_title( get_option( 'pride_bar_option', '' ) );
 
-	include_once( plugin_dir_path( __FILE__ ) . 'css/' . $theme . '.css' );
+	include_once( plugin_dir_path( __FILE__ ) . 'css/' . $theme . '.min.php' );
 }
 
 add_action( 'wp_before_admin_bar_render', 'add_pride_bar' );
@@ -68,7 +68,7 @@ add_action( 'wp_before_admin_bar_render', 'add_pride_bar' );
 * Uses the Settings API to add a new setting to the general screen
 * This setting allows the user to change the style of the Pride Bar
 *
-* @since	1.0
+* @since    1.0
 */
 
 function pride_bar_settings_init() {
@@ -85,16 +85,20 @@ add_action( 'admin_init', 'pride_bar_settings_init' );
 *
 * Return additional output to add the new settings field
 *
-* @since	1.0
+* @since    1.0
 */
 
 function pride_bar_setting_callback() {
 
 	$theme = sanitize_title( get_option( 'pride_bar_option', '' ) );
-	
+
 	echo '<select name="pride_bar_option" id="pride_bar_option"><option ';
-	if ( 'wpcom' === $theme ) { echo 'selected="selected" '; }
+	if ( 'wpcom' === $theme ) {
+		echo 'selected="selected" ';
+	}
 	echo 'value="wpcom">' . esc_attr( 'WordPress.com', 'pride-bar' ) . '</option><option ';
-	if ( 'halfelf' === $theme ) { echo 'selected="selected" '; }
+	if ( 'halfelf' === $theme ) {
+		echo 'selected="selected" ';
+	}
 	echo 'value="halfelf">' . esc_attr( 'Half Elf', 'pride-bar' ) . '</option></select>';
 }
