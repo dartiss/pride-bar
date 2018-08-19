@@ -3,7 +3,7 @@
 Plugin Name: Pride Bar
 Plugin URI: https://wordpress.org/plugins/pride-bar
 Description: Add a rainbow flag design to your admin bar.
-Version: 1.0.2
+Version: 1.0.3
 Author: David Artiss
 Author URI: https://artiss.blog
 Text Domain: pride-bar
@@ -55,7 +55,7 @@ add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
 
 function add_pride_bar() {
 
-	$theme = sanitize_title( get_option( 'pride_bar_option', '' ) );
+	$theme = sanitize_title( get_option( 'pride_bar_option', 'wpcom' ) );
 
 	include_once( plugin_dir_path( __FILE__ ) . 'css/' . $theme . '.min.php' );
 }
