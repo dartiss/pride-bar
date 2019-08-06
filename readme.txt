@@ -2,8 +2,8 @@
 Contributors: dartiss
 Tags: rainbow, pride, admin bar, gay, lgbt
 Requires at least: 4.6
-Tested up to: 4.9.4
-Requires PHP: 5.3
+Tested up to: 5.2.2
+Requires PHP: 5.6
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,6 +30,8 @@ The technical stuff...
 Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues.
 
 Thanks to for Michael Arestad for writing the original code, Pento [for sharing it](https://gist.github.com/pento/bc4574b8eb0f4500efbeb75ec7d8630c) and [Mika Epstein](https://halfelf.org/2017/make-wordpress-gay/ "Make WordPress Gay") for her alternative theme suggestion. And particularly to the LGBT community for having such an awesome symbol.
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.co](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0 "Creative Commons BY 3.0").
 
 == Installation ==
 
