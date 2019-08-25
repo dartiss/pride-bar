@@ -31,8 +31,6 @@ Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") fo
 
 Thanks to for Michael Arestad for writing the original code, Pento [for sharing it](https://gist.github.com/pento/bc4574b8eb0f4500efbeb75ec7d8630c) and [Mika Epstein](https://halfelf.org/2017/make-wordpress-gay/ "Make WordPress Gay") for her alternative theme suggestion. And particularly to the LGBT community for having such an awesome symbol.
 
-Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.co](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0 "Creative Commons BY 3.0").
-
 == Installation ==
 
 Pride Bar can be found and installed via the Plugin menu within WordPress administration (Plugins -> Add New). Alternatively, it can be downloaded from WordPress.org and installed manually...
