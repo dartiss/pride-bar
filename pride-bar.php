@@ -1,35 +1,25 @@
 <?php
-/*
+/**
 Plugin Name: Pride Bar
 Plugin URI: https://wordpress.org/plugins/pride-bar
 Description: Add a rainbow flag design to your admin bar.
-Version: 1.0.3
+Version: 1.0.4
 Author: David Artiss
 Author URI: https://artiss.blog
 Text Domain: pride-bar
-*/
+
+@package  pride-bar
+ */
 
 /**
-* Pride Bar
-*
-* Plugin to add a Pride rainbow to your admin bar.
-*
-* @package  pride-bar
-* @since    1.0
-*/
-
-/**
-* Add meta to plugin details
-*
-* Add options to plugin meta line
-*
-* @since    1.0
-*
-* @param    string  $links  Current links
-* @param    string  $file   File in use
-* @return   string          Links, now with settings added
-*/
-
+ * Add meta to plugin details
+ *
+ * Add options to plugin meta line
+ *
+ * @param    string $links  Current links.
+ * @param    string $file   File in use.
+ * @return   string         Links, now with settings added.
+ */
 function pride_bar_plugin_meta( $links, $file ) {
 
 	if ( false !== strpos( $file, 'pride-bar.php' ) ) {
@@ -37,6 +27,10 @@ function pride_bar_plugin_meta( $links, $file ) {
 		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/pride-bar">' . __( 'Github', 'pride-bar' ) . '</a>' ) );
 
 		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/pride-bar">' . __( 'Support', 'pride-bar' ) . '</a>' ) );
+
+		$links = array_merge( $links, array( '<a href="https://artiss.blog/donate">' . __( 'Donate', 'pride-bar' ) . '</a>' ) );
+
+		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/pride-bar/reviews/#new-post">' . __( 'Write a Review', 'pride-bar' ) . '&nbsp;⭐️⭐️⭐️⭐️⭐️</a>' ) );
 	}
 
 	return $links;
@@ -45,35 +39,28 @@ function pride_bar_plugin_meta( $links, $file ) {
 add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
 
 /**
-* Add Pride Bar CSS
-*
-* Add Pride Bar CSS before the admin bar render
-*
-* @since    1.0
-*/
-
-
+ * Add Pride Bar CSS
+ *
+ * Add Pride Bar CSS before the admin bar render
+ */
 function add_pride_bar() {
 
 	$theme = sanitize_title( get_option( 'pride_bar_option', 'wpcom' ) );
 
-	include_once( plugin_dir_path( __FILE__ ) . 'css/' . $theme . '.min.php' );
+	include_once plugin_dir_path( __FILE__ ) . 'css/' . $theme . '.min.php';
 }
 
 add_action( 'wp_before_admin_bar_render', 'add_pride_bar' );
 
 /**
-* Add new setting using the API
-*
-* Uses the Settings API to add a new setting to the general screen
-* This setting allows the user to change the style of the Pride Bar
-*
-* @since    1.0
-*/
-
+ * Add new setting using the API
+ *
+ * Uses the Settings API to add a new setting to the general screen
+ * This setting allows the user to change the style of the Pride Bar
+ */
 function pride_bar_settings_init() {
 
-	add_settings_field( 'pride_bar_option', __( ucwords( 'Pride Bar style' ), 'pride-bar' ), 'pride_bar_setting_callback', 'general', 'default', array( 'label_for' => 'pride_bar_option' ) );
+	add_settings_field( 'pride_bar_option', __( 'Pride Bar style', 'pride-bar' ), 'pride_bar_setting_callback', 'general', 'default', array( 'label_for' => 'pride_bar_option' ) );
 
 	register_setting( 'general', 'pride_bar_option' );
 }
@@ -81,13 +68,10 @@ function pride_bar_settings_init() {
 add_action( 'admin_init', 'pride_bar_settings_init' );
 
 /**
-* Callback for Settings API
-*
-* Return additional output to add the new settings field
-*
-* @since    1.0
-*/
-
+ * Callback for Settings API
+ *
+ * Return additional output to add the new settings field
+ */
 function pride_bar_setting_callback() {
 
 	$theme = sanitize_title( get_option( 'pride_bar_option', '' ) );

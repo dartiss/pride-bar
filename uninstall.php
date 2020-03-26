@@ -1,19 +1,18 @@
 <?php
 /**
-* Uninstaller
-*
-* Uninstall the plugin by removing any options from the database
-*
-* @package  pride-bar
-* @since    1.0
-*/
+ * Uninstaller
+ *
+ * Uninstall the plugin by removing any options from the database
+ *
+ * @package  pride-bar
+ */
 
-// If the uninstall was not called by WordPress, exit
+// If the uninstall was not called by WordPress, exit.
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-// Remove options
+// Remove options.
 
 delete_option( 'pride_bar_option' );

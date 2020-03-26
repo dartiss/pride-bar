@@ -1,31 +1,23 @@
 === Pride Bar ===
 Contributors: dartiss
+Donate link: https://artiss.blog/donate
 Tags: rainbow, pride, admin bar, gay, lgbt
 Requires at least: 4.6
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add a rainbow flag design to your admin bar.
+🏳️‍🌈 Add a rainbow flag design to your admin bar.
 
 == Description ==
 
-Add a rainbow flag design to your admin bar.
+🏳️‍🌈 Add a rainbow flag design to your admin bar.
 
 Originally added to WordPress.com and viewable by Australian users, it was to show support as a company for marriage equality, which was part of a national survey that was taking part in that country. And many people liked it, not just Australians, so this plugin brings it back for anyone who wants it.
 
 How to use? Just install, activate and enjoy a new rainbow/pride flag colored admin bar. Different designs are available - head to Settings -> General to change the theme.
-
-The technical stuff...
-
-* Designed for both single and multi-site installations
-* PHP7 compatible
-* Passes [WordPress.com VIP](https://vip.wordpress.com) coding standards and fully compatible with their platform
-* Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/pride-bar "Translating WordPress") page**
-* WCAG 2.0 Compliant at AA level
-* Gutenberg ready
 
 Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues.
 
@@ -55,6 +47,10 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
 
+= 1.0.4 =
+* Enhancement: Not only follows all of the WordPress coding standards but also the gold-standard WP VIP standards too. This is one well written plugin, even if I do say so myself
+* Enhancement: Improved the plugin meta data and added donation information in. Just because
+
 = 1.0.3 =
 * Bug: Fixed PHP errors that occurred upon first activation
 
@@ -70,11 +66,5 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 == Upgrade Notice ==
 
-= 1.0.3 =
-* Fix to errors occurring on first activation
-
-= 1.0.2 =
-* From Montréal, the week of Montréal Pride, I bring you... some minor enhancements
-
-= 1.0.1 =
-* Now fully compatible with the WordPress.com VIP platform
+= 1.0.4 =
+* Don't mind me, just some tidying of the code...
