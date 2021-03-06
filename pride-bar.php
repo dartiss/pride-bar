@@ -54,6 +54,29 @@ function pride_bar_plugin_meta( $links, $file ) {
 add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
 
 /**
+ * Modify actions links.
+ *
+ * Add or remove links for the actions listed against this plugin
+ *
+ * @param    string $actions      Current actions.
+ * @param    string $plugin_file  The plugin.
+ * @return   string               Actions, now with deactivation removed!
+ */
+function pride_bar_action_links( $actions, $plugin_file ) {
+
+	// Make sure we only perform actions for this specific plugin!
+	if ( strpos( $plugin_file, 'pride-bar.php' ) !== false ) {
+
+		// Add link to the settings page.
+		array_unshift( $actions, '<a href="' . admin_url() . 'options-general.php">' . __( 'Settings', 'pride-bar' ) . '</a>' );
+	}
+
+	return $actions;
+}
+
+add_filter( 'plugin_action_links', 'pride_bar_action_links', 10, 2 );
+
+/**
  * Add Pride Bar CSS
  *
  * Add inline Pride Bar CSS to the header
