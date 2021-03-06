@@ -132,7 +132,7 @@ add_action( 'admin_init', 'pride_bar_settings_init' );
  */
 function pride_bar_section_callback() {
 
-	echo esc_html( __( 'Define which Pride theme you wish to use, along with the positioning of it on the Admin Bar.', 'pride-bar' ) );
+	echo esc_html( __( 'Choose which pride theme you wish to use, along with the positioning of it on the Admin Bar.', 'pride-bar' ) );
 }
 
 /**
