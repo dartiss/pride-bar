@@ -36,7 +36,7 @@ But that's not all, as it now supports 14 different pride flags...
 
 And, thanks to code by [Mika Epstein](https://halfelf.org/2017/make-wordpress-gay/ "Make WordPress Gay"), you can modify the positioning of the flag too - allow it to flow behind your Admin Bar menu options or go around it.
 
-How to use? Just install, activate and enjoy a new rainbow/pride flag colored admin bar. Different designs are available - head to Settings -> General -> Pride Bar to change the flag and positioning.
+How to use? Just install, activate and enjoy a new pride flag colored admin bar. Different designs are available - head to Settings -> General -> Pride Bar to change the flag and positioning.
 
 Thanks to for Michael Arestad for writing the original code and Pento [for sharing it](https://gist.github.com/pento/bc4574b8eb0f4500efbeb75ec7d8630c). And particularly to the LGBT community for having suc awesome symbols.
 
