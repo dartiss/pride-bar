@@ -85,8 +85,8 @@ function pride_bar_add_css() {
 
 	// Get the saved flag position, style and then build the flag array.
 
-	$position = get_option( 'pride_bar_position', '' );
-	$style    = get_option( 'pride_bar_option', '' );
+	$position = pride_bar_get_position();
+	$style    = pride_bar_get_style();
 
 	$flags = pride_bar_build_array();
 	$text  = pride_bar_text_array();
@@ -171,13 +171,7 @@ function pride_bar_style_callback() {
 
 	// Get the saved flag style details.
 
-	$style = get_option( 'pride_bar_option', 'LGBT' );
-
-	// Backwards compatibility - convert the old theme names to the new styles!
-
-	if ( 'halfelf' == $style || 'wpcom' == $style ) {
-		$style = 'LGBT';
-	}
+	$style = pride_bar_get_style();
 
 	// Add drop-down for style selection.
 
@@ -194,16 +188,7 @@ function pride_bar_position_callback() {
 
 	// Get the saved flag position details.
 
-	$position = get_option( 'pride_bar_position', 'across' );
-
-	// Backwards compatibility - convert the old theme names to the new positions!
-
-	if ( 'halfelf' == $position ) {
-		$position = 'across';
-	}
-	if ( 'wpcom' == $position ) {
-		$position = 'behind';
-	}
+	$position = pride_bar_get_position();
 
 	// Add drop-down for position selection.
 
@@ -240,6 +225,53 @@ function pride_bar_position_dropdown( $position ) {
 	echo '<option ' . selected( 'across', $position, false ) . ' value="across">' . esc_attr( 'Across content', 'pride-bar' ) . '</option>';
 	echo '<option ' . selected( 'behind', $position, false ) . ' value="behind">' . esc_attr( 'Behind content', 'pride-bar' ) . '</option>';
 	echo '</select>';
+}
+
+/**
+ * Get the style
+ *
+ * Get the selected style
+ *
+ * @return string Text  Selected style
+ */
+function pride_bar_get_style() {
+
+	// Get the saved flag style details.
+
+	$style = get_option( 'pride_bar_option', 'LGBT' );
+
+	// Backwards compatibility - convert the old theme names to the new styles!
+
+	if ( 'halfelf' == $style || 'wpcom' == $style ) {
+		$style = 'LGBT';
+	}
+
+	return $style;
+}
+
+/**
+ * Get the position
+ *
+ * Get the selected position
+ *
+ * @return string Text  Selected position
+ */
+function pride_bar_get_position() {
+
+	// Get the saved flag position details.
+
+	$position = get_option( 'pride_bar_position', 'across' );
+
+	// Backwards compatibility - convert the old theme names to the new positions!
+
+	if ( 'halfelf' == $position ) {
+		$position = 'across';
+	}
+	if ( 'wpcom' == $position ) {
+		$position = 'behind';
+	}
+
+	return $position;
 }
 
 /**
