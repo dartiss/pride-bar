@@ -95,5 +95,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.0.4 =
-* Don't mind me, just some tidying of the code...
+= 1.1 =
+* Quite a big change, including support for a whole range of flags
