@@ -9,7 +9,7 @@
  * Plugin Name:       Pride Bar
  * Plugin URI:        https://wordpress.org/plugins/pride-bar/
  * Description:       🏳️‍🌈 Add a pride flag design to your admin bar.
- * Version:           1.1
+ * Version:           1.2
  * Requires at least: 4.6
  * Requires PHP:      5.6
  * Author:            David Artiss
@@ -89,7 +89,15 @@ function pride_bar_add_css() {
 	$style    = pride_bar_get_style();
 
 	$flags = pride_bar_build_array();
-	$text  = pride_bar_text_array();
+
+	// Set a bar text color.
+
+	$text = pride_bar_text_array();
+	if ( ! isset( $text[ $style ] ) ) {
+		$text = '000'; // Default to black if no color is specified.
+	} else {
+		$text = $text[ $style ];
+	}
 
 	// Get the colour information for the currently chosen style.
 
@@ -115,7 +123,7 @@ function pride_bar_add_css() {
 	echo ',#' . esc_html( $prev_rgb ) . ' 100%)}#wpadminbar,#wpadminbar .quicklinks>ul>li{-webkit-box-shadow:unset;-moz-box-shadow:unset;box-shadow:unset}';
 
 	if ( 'across' == $position ) {
-		echo '#wpadminbar .ab-item,#wpadminbar a.ab-item,#wpadminbar>#wp-toolbar span.ab-label,#wpadminbar>#wp-toolbar span.noticon,#wpadminbar .ab-icon,#wpadminbar .ab-icon:before,#wpadminbar .ab-item:before,#wpadminbar .ab-item:after{color:#' . esc_html( $text[ $style ] ) . '}';
+		echo '#wpadminbar .ab-item,#wpadminbar a.ab-item,#wpadminbar>#wp-toolbar span.ab-label,#wpadminbar>#wp-toolbar span.noticon,#wpadminbar .ab-icon,#wpadminbar .ab-icon:before,#wpadminbar .ab-item:before,#wpadminbar .ab-item:after{color:#' . esc_html( $text ) . '}';
 	} else {
 		echo '#wpadminbar .ab-top-menu>li>a{background-color:rgba(50,55,60,.85)}';
 	}
@@ -209,7 +217,7 @@ function pride_bar_style_dropdown( $flags, $style ) {
 	foreach ( $flags as $flag_key => $flag ) {
 		echo '<option ' . selected( $flag_key, $style, false ) . ' value="' . esc_attr( $flag_key, 'pride-bar' ) . '">' . esc_attr( $flag_key, 'pride-bar' ) . '</option>';
 	}
-	echo '</select>';
+	echo '</select><p><a href="https://artiss.blog/request-a-style/">Request a missing style to be added</a></p>';
 }
 
 /**
@@ -242,8 +250,8 @@ function pride_bar_get_style() {
 
 	// Backwards compatibility - convert the old theme names to the new styles!
 
-	if ( 'halfelf' == $style || 'wpcom' == $style ) {
-		$style = 'LGBT';
+	if ( 'halfelf' == $style || 'wpcom' == $style || 'LGBT' == $style ) {
+		$style = 'Pride (Traditional)';
 	}
 
 	return $style;
@@ -284,20 +292,10 @@ function pride_bar_get_position() {
 function pride_bar_text_array() {
 
 	return array(
-		'Agender'     => '000',
-		'Aromantic'   => '000',
-		'Asexual'     => '000',
-		'Bigender'    => '000',
+		'Aftgender'   => 'FFF',
 		'Bisexual'    => 'FFF',
-		'Gay Men'     => '000',
 		'Genderfluid' => 'FFF',
-		'Genderqueer' => '000',
-		'Lesbian'     => '000',
-		'Non-binary'  => '000',
-		'LGBT'        => '000',
-		'Pansexual'   => '000',
-		'Polysexual'  => '000',
-		'Transgender' => '000',
+		'Demifluid'   => 'FFF',
 	);
 }
 
@@ -311,7 +309,21 @@ function pride_bar_text_array() {
 function pride_bar_build_array() {
 
 	return array(
-		'Agender'     => array(
+		'Aftgender'                      => array(
+			array(
+				'size' => 0,
+				'rgb'  => '5610CC',
+			),
+			array(
+				'size' => 60,
+				'rgb'  => 'FDEA9F',
+			),
+			array(
+				'size' => 80,
+				'rgb'  => 'FC96DF',
+			),
+		),
+		'Agender'                        => array(
 			array(
 				'size' => 0,
 				'rgb'  => '000',
@@ -341,7 +353,7 @@ function pride_bar_build_array() {
 				'rgb'  => '000',
 			),
 		),
-		'Aromantic'   => array(
+		'Aromantic'                      => array(
 			array(
 				'size' => 0,
 				'rgb'  => '339833',
@@ -363,7 +375,7 @@ function pride_bar_build_array() {
 				'rgb'  => '000',
 			),
 		),
-		'Asexual'     => array(
+		'Asexual'                        => array(
 			array(
 				'size' => 0,
 				'rgb'  => '000',
@@ -381,7 +393,7 @@ function pride_bar_build_array() {
 				'rgb'  => '6B006D',
 			),
 		),
-		'Bigender'    => array(
+		'Bigender'                       => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'B56291',
@@ -411,7 +423,7 @@ function pride_bar_build_array() {
 				'rgb'  => '5A6CC6',
 			),
 		),
-		'Bisexual'    => array(
+		'Bisexual'                       => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'D60270',
@@ -425,7 +437,235 @@ function pride_bar_build_array() {
 				'rgb'  => '0038A8',
 			),
 		),
-		'Gay Men'     => array(
+		'Ceterosexual'                   => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FBFB6D',
+			),
+			array(
+				'size' => 25,
+				'rgb'  => '198E36',
+			),
+			array(
+				'size' => 50,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 75,
+				'rgb'  => '000',
+			),
+		),
+		'Demiboy'                        => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => '8AD1E6',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => '8AD1E6',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Demifluid'                      => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B8B8B8',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'FA5A8F',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'AE00CE',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => '2728AF',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B8B8B8',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Demigender'                     => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'FAFF61',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'FAFF61',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Demigirl'                       => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'FC9BBD',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'FC9BBD',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B6B6B6',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Demineutrois'                   => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B7B7B7',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => '288E15',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => '288E15',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B7B7B7',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Deminonbinary'                  => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B7B7B7',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'F9FF61',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'F9FF61',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'B7B7B7',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Demixenogender'                 => array(
+			array(
+				'size' => 0,
+				'rgb'  => '6C6C6C',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B2242D',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'FDC097',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => '9FC8FF',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => '7A1EBA',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '6C6C6C',
+			),
+		),
+		'Gay Men'                        => array(
 			array(
 				'size' => 0,
 				'rgb'  => '126B56',
@@ -455,7 +695,37 @@ function pride_bar_build_array() {
 				'rgb'  => '0A245D',
 			),
 		),
-		'Genderfluid' => array(
+		'Genderfae'                      => array(
+			array(
+				'size' => 0,
+				'rgb'  => '85BA93',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'B5D89E',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'F7FBC3',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'F98DB9',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'D070DC',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '9965D5',
+			),
+		),
+		'Genderfluid'                    => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'FC5B90',
@@ -477,7 +747,7 @@ function pride_bar_build_array() {
 				'rgb'  => '2626AF',
 			),
 		),
-		'Genderqueer' => array(
+		'Genderqueer'                    => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'A564D3',
@@ -491,7 +761,21 @@ function pride_bar_build_array() {
 				'rgb'  => '3B711A',
 			),
 		),
-		'Lesbian'     => array(
+		'Gender Nonconforming'           => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FC96DF',
+			),
+			array(
+				'size' => 40,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 60,
+				'rgb'  => 'FC96DF',
+			),
+		),
+		'Lesbian'                        => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'C81804',
@@ -513,7 +797,217 @@ function pride_bar_build_array() {
 				'rgb'  => '8F004F',
 			),
 		),
-		'LGBT'        => array(
+		'Lipstick Lesbian'               => array(
+			array(
+				'size' => 0,
+				'rgb'  => '90004E',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'A53E7E',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'C24A95',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'DB9AC4',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'AE3740',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => '771105',
+			),
+		),
+		'Neutrois'                       => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 33.33,
+				'rgb'  => '23A53B',
+			),
+			array(
+				'size' => 66.67,
+				'rgb'  => '000',
+			),
+		),
+		'Non-binary'                     => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FBF62A',
+			),
+			array(
+				'size' => 25,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 50,
+				'rgb'  => '883DC6',
+			),
+			array(
+				'size' => 75,
+				'rgb'  => '212121',
+			),
+		),
+		'Omnisexual'                     => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FC84C2',
+			),
+			array(
+				'size' => 20,
+				'rgb'  => 'FB32AF',
+			),
+			array(
+				'size' => 40,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 60,
+				'rgb'  => '5440FD',
+			),
+			array(
+				'size' => 80,
+				'rgb'  => '7992FE',
+			),
+		),
+		'Pangender'                      => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FFF887',
+			),
+			array(
+				'size' => 14.29,
+				'rgb'  => 'FDD4C2',
+			),
+			array(
+				'size' => 29.57,
+				'rgb'  => 'FFE5FA',
+			),
+			array(
+				'size' => 42.86,
+				'rgb'  => 'FFF',
+			),
+			array(
+				'size' => 57.14,
+				'rgb'  => 'FFE5FA',
+			),
+			array(
+				'size' => 71.43,
+				'rgb'  => 'FDD4C2',
+			),
+			array(
+				'size' => 85.71,
+				'rgb'  => 'FFF887',
+			),
+		),
+		'Pansexual'                      => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FB007A',
+			),
+			array(
+				'size' => 33.33,
+				'rgb'  => 'FED109',
+			),
+			array(
+				'size' => 66.67,
+				'rgb'  => '20A0FE',
+			),
+		),
+		'Polysexual'                     => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'F000AA',
+			),
+			array(
+				'size' => 33.33,
+				'rgb'  => '1CD156',
+			),
+			array(
+				'size' => 66.67,
+				'rgb'  => '1B7BF4',
+			),
+		),
+		'Pride (Gilbert Baker)'          => array(
+			array(
+				'size' => 0,
+				'rgb'  => 'FA4DA4',
+			),
+			array(
+				'size' => 12.5,
+				'rgb'  => 'FB0006',
+			),
+			array(
+				'size' => 25,
+				'rgb'  => 'FD7A08',
+			),
+			array(
+				'size' => 37.5,
+				'rgb'  => 'FEFF0D',
+			),
+			array(
+				'size' => 50,
+				'rgb'  => '117E02',
+			),
+			array(
+				'size' => 62.5,
+				'rgb'  => '17B4B3',
+			),
+			array(
+				'size' => 75,
+				'rgb'  => '2B0072',
+			),
+			array(
+				'size' => 87.5,
+				'rgb'  => '7A007B',
+			),
+		),
+		'Pride (More Colour More Pride)' => array(
+			array(
+				'size' => 0,
+				'rgb'  => '000',
+			),
+			array(
+				'size' => 12.5,
+				'rgb'  => '3F2A10',
+			),
+			array(
+				'size' => 25,
+				'rgb'  => 'DB0009',
+			),
+			array(
+				'size' => 37.5,
+				'rgb'  => 'FA7807',
+			),
+			array(
+				'size' => 50,
+				'rgb'  => 'FEEC0A',
+			),
+			array(
+				'size' => 62.5,
+				'rgb'  => '0F701E',
+			),
+			array(
+				'size' => 75,
+				'rgb'  => '002DFE',
+			),
+			array(
+				'size' => 87.5,
+				'rgb'  => '620074',
+			),
+		),
+		'Pride (Traditional)'            => array(
 			array(
 				'size' => 0,
 				'rgb'  => 'E24C3E',
@@ -539,53 +1033,45 @@ function pride_bar_build_array() {
 				'rgb'  => '8C7AB8',
 			),
 		),
-		'Non-binary'  => array(
+		'Quintgender'                    => array(
 			array(
 				'size' => 0,
-				'rgb'  => 'FBF62A',
+				'rgb'  => 'FD7DB7',
 			),
 			array(
-				'size' => 25,
-				'rgb'  => 'FFF',
+				'size' => 11.11,
+				'rgb'  => '50B3FE',
 			),
 			array(
-				'size' => 50,
-				'rgb'  => '883DC6',
-			),
-			array(
-				'size' => 75,
-				'rgb'  => '212121',
-			),
-		),
-		'Pansexual'   => array(
-			array(
-				'size' => 0,
-				'rgb'  => 'FB007A',
+				'size' => 22.22,
+				'rgb'  => '8166FD',
 			),
 			array(
 				'size' => 33.33,
-				'rgb'  => 'FED109',
+				'rgb'  => 'FFFF6E',
 			),
 			array(
-				'size' => 66.67,
-				'rgb'  => '20A0FE',
+				'size' => 44.44,
+				'rgb'  => '59D553',
+			),
+			array(
+				'size' => 55.55,
+				'rgb'  => 'FFFF6E',
+			),
+			array(
+				'size' => 66.66,
+				'rgb'  => '8166FD',
+			),
+			array(
+				'size' => 77.77,
+				'rgb'  => '50B3FE',
+			),
+			array(
+				'size' => 88.88,
+				'rgb'  => 'FD7DB7',
 			),
 		),
-		'Polysexual'  => array(
-			array(
-				'size' => 0,
-				'rgb'  => 'F000AA',
-			),
-			array(
-				'size' => 33.33,
-				'rgb'  => '1CD156',
-			),
-			array(
-				'size' => 66.67,
-				'rgb'  => '1B7BF4',
-			),
-		),
-		'Transgender' => array(
+		'Transgender'                    => array(
 			array(
 				'size' => 0,
 				'rgb'  => '4EC2F9',
