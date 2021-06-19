@@ -9,15 +9,15 @@ Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-🏳️‍🌈 Add a pride flag design to your admin bar.
+🏳️‍🌈 Add an LGBTQ+ flag design to your admin bar.
 
 == Description ==
 
-🏳️‍🌈 Add a pride flag design to your admin bar.
+🏳️‍🌈 Add an LGBTQ+ flag design to your admin bar.
 
 Originally added to WordPress.com and viewable by Australian users to support marriage equality, I have bought the rainbow flag to everyone's Admin Bar, via this plugin. 
 
-But that's not all, as it now supports 14 different pride flags...
+But that's not all, as it now supports 14 different flags...
 
 1. Aftgender
 2. Agender
@@ -55,7 +55,7 @@ But that's not all, as it now supports 14 different pride flags...
 
 And, thanks to code by [Mika Epstein](https://halfelf.org/2017/make-wordpress-gay/ "Make WordPress Gay"), you can modify the positioning of the flag too - allow it to flow behind your Admin Bar menu options or go around it.
 
-How to use? Just install, activate and enjoy a new pride flag colored admin bar. Different designs are available - head to Settings -> General -> Pride Bar to change the flag and positioning.
+How to use? Just install, activate and enjoy a new flag colored admin bar. Different designs are available - head to Settings -> General -> Pride Bar to change the flag and positioning.
 
 Thanks to for Michael Arestad for writing the original code and Pento [for sharing it](https://gist.github.com/pento/bc4574b8eb0f4500efbeb75ec7d8630c). And particularly to the LGBT community for having suc awesome symbols.
 

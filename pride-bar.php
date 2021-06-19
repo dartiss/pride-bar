@@ -8,7 +8,7 @@
  *
  * Plugin Name:       Pride Bar
  * Plugin URI:        https://wordpress.org/plugins/pride-bar/
- * Description:       🏳️‍🌈 Add a pride flag design to your admin bar.
+ * Description:       🏳️‍🌈 Add an LGBTQ+ flag design to your admin bar.
  * Version:           1.2
  * Requires at least: 4.6
  * Requires PHP:      5.6
