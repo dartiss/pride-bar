@@ -17,7 +17,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Originally added to WordPress.com and viewable by Australian users to support marriage equality, I have bought the rainbow flag to everyone's Admin Bar, via this plugin. 
 
-But that's not all, as it now supports 14 different flags...
+But that's not all, as it now supports 33 different flags...
 
 1. Aftgender
 2. Agender
