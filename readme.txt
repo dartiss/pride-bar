@@ -5,7 +5,7 @@ Tags: flag, pride, rainbow, gay, queer, lgbt, lgbtq, lbgtqia, admin bar
 Requires at least: 4.6
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,9 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 I use semantic versioning, with the first release being 1.0.
 
+= 1.3.1 =
+* Bug: As Snoop Dogg once said, "it's amazing how much trouble you can get in for a mis-placed hash". Okay, he didn't say that but you can imagine it, right? Yeah, I put a hash symbol somewhere where it shouldn't have been and broke the Monosexual style. Ironically, the result was that it appeared as just a single color
+
 = 1.3 =
 * Bug: I didn't add Intersex last time around, despite stating I had. Now added
 * Bug: Fixed some escaping that wasn't correct
@@ -140,5 +143,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.3 =
-* Added 14 more styles, fixed and another and re-instated one that had gone AWOL
+= 1.3.1 =
+* Fixed a bug with the Monosexual style
