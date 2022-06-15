@@ -9,7 +9,7 @@
  * Plugin Name:       Pride Bar
  * Plugin URI:        https://wordpress.org/plugins/pride-bar/
  * Description:       🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
- * Version:           1.3
+ * Version:           1.3.1
  * Requires at least: 4.6
  * Requires PHP:      5.6
  * Author:            David Artiss
@@ -1084,7 +1084,7 @@ function pride_bar_build_array() {
 		'Monosexual'                     => array(
 			array(
 				'size' => 0,
-				'rgb'  => '#AA5FB1',
+				'rgb'  => 'AA5FB1',
 			),
 			array(
 				'size' => 14.29,
