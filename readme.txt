@@ -1,18 +1,5 @@
 === Pride Bar ===
 Contributors: dartiss
-<<<<<<< Updated upstream
-Donate link: https://artiss.blog/donate
-Tags: rainbow, pride, admin bar, gay, lgbt
-Requires at least: 4.6
-Tested up to: 5.7
-Requires PHP: 5.6
-Stable tag: 1.2
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-🏳️‍🌈 Add an LGBTQ+ flag design to your admin bar.
-
-=======
 Donate link: https://artiss.blog/donate
 Tags: flag, pride, rainbow, gay, queer, lgbt, lgbtq, lbgtqia, admin bar
 Requires at least: 4.6
@@ -24,7 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
 
->>>>>>> Stashed changes
 == Description ==
 
 🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
