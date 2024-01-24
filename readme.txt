@@ -1,11 +1,11 @@
 === Pride Bar ===
 Contributors: dartiss
 Donate link: https://artiss.blog/donate
-Tags: flag, pride, rainbow, gay, queer, lgbt, lgbtq, lbgtqia, admin bar
+Tags: flag, pride, rainbow, gay, lgbt
 Requires at least: 4.6
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,8 +102,11 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 
 I use semantic versioning, with the first release being 1.0.
 
+= 1.3.2 =
+* Enhancement: Made some minor code quality improvements
+
 = 1.3.1 =
-* Bug: As Snoop Dogg once said, "it's amazing how much trouble you can get in for a mis-placed hash". Okay, he didn't say that but you can imagine it, right? Yeah, I put a hash symbol somewhere where it shouldn't have been and broke the Monosexual style. Ironically, the result was that it appeared as just a single color
+* Bug: As Snoop Dogg once said, "it's amazing how much trouble you can get in for mis-placed hash". Okay, he didn't say that but you can imagine it, right? Yeah, I put a hash symbol somewhere where it shouldn't have been and broke the Monosexual style. Ironically, the result was that it appeared as just a single color
 
 = 1.3 =
 * Bug: I didn't add Intersex last time around, despite stating I had. Now added
@@ -143,5 +146,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.3.1 =
-* Fixed a bug with the Monosexual style
+= 1.3.2 =
+* Minor code quality improvements

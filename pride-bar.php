@@ -9,9 +9,9 @@
  * Plugin Name:       Pride Bar
  * Plugin URI:        https://wordpress.org/plugins/pride-bar/
  * Description:       🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
- * Version:           1.3.1
+ * Version:           1.3.2
  * Requires at least: 4.6
- * Requires PHP:      5.6
+ * Requires PHP:      7.4
  * Author:            David Artiss
  * Author URI:        https://artiss.blog
  * Text Domain:       pride-bar
@@ -35,7 +35,7 @@
  * @param    string $file   File in use.
  * @return   string         Links, now with settings added.
  */
-function pride_bar_plugin_meta( $links, $file ) {
+function prb_plugin_meta( $links, $file ) {
 
 	if ( false !== strpos( $file, 'pride-bar.php' ) ) {
 
@@ -51,7 +51,7 @@ function pride_bar_plugin_meta( $links, $file ) {
 	return $links;
 }
 
-add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
+add_filter( 'plugin_row_meta', 'prb_plugin_meta', 10, 2 );
 
 /**
  * Modify actions links.
@@ -62,7 +62,7 @@ add_filter( 'plugin_row_meta', 'pride_bar_plugin_meta', 10, 2 );
  * @param    string $plugin_file  The plugin.
  * @return   string               Actions, now with deactivation removed!
  */
-function pride_bar_action_links( $actions, $plugin_file ) {
+function prb_action_links( $actions, $plugin_file ) {
 
 	// Make sure we only perform actions for this specific plugin!
 	if ( strpos( $plugin_file, 'pride-bar.php' ) !== false ) {
@@ -74,25 +74,24 @@ function pride_bar_action_links( $actions, $plugin_file ) {
 	return $actions;
 }
 
-add_filter( 'plugin_action_links', 'pride_bar_action_links', 10, 2 );
+add_filter( 'plugin_action_links', 'prb_action_links', 10, 2 );
 
 /**
  * Add Pride Bar CSS
  *
  * Add inline Pride Bar CSS to the header
  */
-function pride_bar_add_css() {
+function prb_add_css() {
 
 	// Get the saved flag position, style and then build the flag array.
 
-	$position = pride_bar_get_position();
-	$style    = pride_bar_get_style();
-
-	$flags = pride_bar_build_array();
+	$position = prb_get_position();
+	$style    = prb_get_style();
+	$flags    = prb_build_array();
 
 	// Set a bar text color.
 
-	$text = pride_bar_text_array();
+	$text = prb_text_array();
 	if ( ! isset( $text[ $style ] ) ) {
 		$text = '000'; // Default to black if no color is specified.
 	} else {
@@ -109,7 +108,7 @@ function pride_bar_add_css() {
 
 	$first     = true;
 	$prev_size = '';
-	
+
 	foreach ( $flag as $colours ) {
 		if ( ! $first ) {
 			echo ',#' . esc_html( $prev_rgb ) . ' ' . esc_html( $colours['size'] ) . '%';
@@ -122,7 +121,7 @@ function pride_bar_add_css() {
 
 	echo ',#' . esc_html( $prev_rgb ) . ' 100%)}#wpadminbar,#wpadminbar .quicklinks>ul>li{-webkit-box-shadow:unset;-moz-box-shadow:unset;box-shadow:unset}';
 
-	if ( 'across' == $position ) {
+	if ( 'across' === $position ) {
 		echo '#wpadminbar .ab-item,#wpadminbar a.ab-item,#wpadminbar>#wp-toolbar span.ab-label,#wpadminbar>#wp-toolbar span.noticon,#wpadminbar .ab-icon,#wpadminbar .ab-icon:before,#wpadminbar .ab-item:before,#wpadminbar .ab-item:after{color:#' . esc_html( $text ) . '}';
 	} else {
 		echo '#wpadminbar .ab-top-menu>li>a{background-color:rgba(50,55,60,.85)}';
@@ -131,8 +130,8 @@ function pride_bar_add_css() {
 	echo '</style>';
 }
 
-add_action( 'wp_head', 'pride_bar_add_css' );
-add_action( 'admin_head', 'pride_bar_add_css' );
+add_action( 'wp_head', 'prb_add_css' );
+add_action( 'admin_head', 'prb_add_css' );
 
 /**
  * Add new setting using the API
@@ -140,28 +139,28 @@ add_action( 'admin_head', 'pride_bar_add_css' );
  * Uses the Settings API to add a new setting to the general screen
  * This setting allows the user to change the style of the Pride Bar
  */
-function pride_bar_settings_init() {
+function prb_settings_init() {
 
 	// Add the new section to General settings.
-	add_settings_section( 'pride_bar_section', __( 'Pride Bar', 'pride-bar' ), 'pride_bar_section_callback', 'general' );
+	add_settings_section( 'pride_bar_section', __( 'Pride Bar', 'pride-bar' ), 'prb_section_callback', 'general' );
 
 	// Add the settings field for which style is required.
-	add_settings_field( 'pride_bar_option', __( 'Style', 'pride-bar' ), 'pride_bar_style_callback', 'general', 'pride_bar_section', array( 'label_for' => 'pride_bar_option' ) );
+	add_settings_field( 'pride_bar_option', __( 'Style', 'pride-bar' ), 'prb_style_callback', 'general', 'pride_bar_section', array( 'label_for' => 'pride_bar_option' ) );
 	register_setting( 'general', 'pride_bar_option' );
 
 	// Add the settings field for which style is required.
-	add_settings_field( 'pride_bar_position', __( 'Position', 'pride-bar' ), 'pride_bar_position_callback', 'general', 'pride_bar_section', array( 'label_for' => 'pride_bar_position' ) );
+	add_settings_field( 'pride_bar_position', __( 'Position', 'pride-bar' ), 'prb_position_callback', 'general', 'pride_bar_section', array( 'label_for' => 'pride_bar_position' ) );
 	register_setting( 'general', 'pride_bar_position' );
 }
 
-add_action( 'admin_init', 'pride_bar_settings_init' );
+add_action( 'admin_init', 'prb_settings_init' );
 
 /**
  * Section callback
  *
  * Create the new section that we've added to the General settings screen
  */
-function pride_bar_section_callback() {
+function prb_section_callback() {
 
 	echo esc_html( __( 'Choose which pride theme you wish to use, along with the positioning of it on the Admin Bar.', 'pride-bar' ) );
 }
@@ -171,20 +170,19 @@ function pride_bar_section_callback() {
  *
  * Return additional output to add the new settings field
  */
-function pride_bar_style_callback() {
+function prb_style_callback() {
 
 	// Create an array of the flag definitions.
 
-	$flags = pride_bar_build_array();
+	$flags = prb_build_array();
 
 	// Get the saved flag style details.
 
-	$style = pride_bar_get_style();
+	$style = prb_get_style();
 
 	// Add drop-down for style selection.
 
-	pride_bar_style_dropdown( $flags, $style );
-
+	prb_style_dropdown( $flags, $style );
 }
 
 /**
@@ -192,15 +190,15 @@ function pride_bar_style_callback() {
  *
  * Return additional output to add the new settings field
  */
-function pride_bar_position_callback() {
+function prb_position_callback() {
 
 	// Get the saved flag position details.
 
-	$position = pride_bar_get_position();
+	$position = prb_get_position();
 
 	// Add drop-down for position selection.
 
-	pride_bar_position_dropdown( $position );
+	prb_position_dropdown( $position );
 }
 
 /**
@@ -211,7 +209,7 @@ function pride_bar_position_callback() {
  * @param    string $flags  The flags array.
  * @param    string $style  Which style is currently selected.
  */
-function pride_bar_style_dropdown( $flags, $style ) {
+function prb_style_dropdown( $flags, $style ) {
 
 	echo '<label><select name="pride_bar_option" id="pride_bar_option">';
 	foreach ( $flags as $flag_key => $flag ) {
@@ -227,7 +225,7 @@ function pride_bar_style_dropdown( $flags, $style ) {
  *
  * @param    string $position  Which position is currently selected.
  */
-function pride_bar_position_dropdown( $position ) {
+function prb_position_dropdown( $position ) {
 
 	echo '<select name="pride_bar_position" id="pride_bar_position">';
 	echo '<option ' . selected( 'across', $position, false ) . ' value="across">' . esc_html( __( 'Across content', 'pride-bar' ) ) . '</option>';
@@ -242,7 +240,7 @@ function pride_bar_position_dropdown( $position ) {
  *
  * @return string Text  Selected style
  */
-function pride_bar_get_style() {
+function prb_get_style() {
 
 	// Get the saved flag style details.
 
@@ -250,7 +248,7 @@ function pride_bar_get_style() {
 
 	// Backwards compatibility - convert the old theme names to the new styles!
 
-	if ( 'halfelf' == $style || 'wpcom' == $style || 'LGBT' == $style ) {
+	if ( 'halfelf' === $style || 'wpcom' === $style || 'LGBT' === $style ) {
 		$style = 'Pride (Traditional)';
 	}
 
@@ -264,7 +262,7 @@ function pride_bar_get_style() {
  *
  * @return string Text  Selected position
  */
-function pride_bar_get_position() {
+function prb_get_position() {
 
 	// Get the saved flag position details.
 
@@ -272,10 +270,10 @@ function pride_bar_get_position() {
 
 	// Backwards compatibility - convert the old theme names to the new positions!
 
-	if ( 'halfelf' == $position ) {
+	if ( 'halfelf' === $position ) {
 		$position = 'across';
 	}
-	if ( 'wpcom' == $position ) {
+	if ( 'wpcom' === $position ) {
 		$position = 'behind';
 	}
 
@@ -289,7 +287,7 @@ function pride_bar_get_position() {
  *
  * @return string  Text colour array
  */
-function pride_bar_text_array() {
+function prb_text_array() {
 
 	return array(
 		'Aftgender'   => 'FFF',
@@ -306,7 +304,7 @@ function pride_bar_text_array() {
  *
  * @return string  Flag array
  */
-function pride_bar_build_array() {
+function prb_build_array() {
 
 	return array(
 		__( 'Aceflux', 'pride-bar' )     => array(
