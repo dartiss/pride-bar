@@ -1,6 +1,6 @@
 # Pride Bar
 
-<img src="https://ps.w.org/pride-bar/assets/icon-128x128.png" align="left">Add an LGBTQIA+ flag design to your admin bar.
+<img src="https://ps.w.org/pride-bar/assets/icon.svg" width=128px align="left" style="padding: 0 20px 20px 0;">Add an LGBTQIA+ flag design to your admin bar.
 
 Originally added to WordPress.com and viewable by Australian users to support marriage equality, I have bought the rainbow flag to everyone's Admin Bar, via this plugin. But that's not all, as it now supports 33 different LGBTQIA+ flags.
 
