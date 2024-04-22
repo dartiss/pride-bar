@@ -3,17 +3,17 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: flag, pride, rainbow, gay, lgbt
 Requires at least: 4.6
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
+Add an LGBTQIA+ flag design to your admin bar.
 
 == Description ==
 
-🏳️‍🌈 Add an LGBTQIA+ flag design to your admin bar.
+Add an LGBTQIA+ flag design to your admin bar.
 
 Originally added to WordPress.com and viewable by Australian users to support marriage equality, I have bought the rainbow flag to everyone's Admin Bar, via this plugin. 
 
@@ -73,9 +73,9 @@ How to use? Just install, activate and enjoy a new flag colored admin bar. Diffe
 
 Thanks to for Michael Arestad for writing the original code and Pento [for sharing it](https://gist.github.com/pento/bc4574b8eb0f4500efbeb75ec7d8630c). And particularly to the LGBTQIA+ community for having such awesome symbols.
 
-Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
+Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore).
 
-👉 Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues 👈
+**Please visit the [Github page](https://github.com/dartiss/pride-bar "Github") for the latest code development, planned enhancements and known issues**
 
 == Installation ==
 
@@ -101,6 +101,9 @@ Yes you can. If you take a look at the plugin folder, you'll see a sub-folder na
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 1.4 =
+* Enhancement: No visible changes but I've split the plugin into a number of smaller files as it was getting too large and difficult to maintain
 
 = 1.3.2 =
 * Enhancement: Made some minor code quality improvements
@@ -146,5 +149,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.3.2 =
-* Minor code quality improvements
+= 1.4 =
+* Split code into smaller files for future maintainability
