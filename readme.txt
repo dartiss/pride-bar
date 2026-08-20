@@ -3,7 +3,7 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: flag, pride, rainbow, gay, lgbt
 Requires at least: 4.6
-Tested up to: 6.5
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.4
 License: GPLv2 or later
@@ -91,6 +91,10 @@ Voila! It's ready to go.
 = Can I submit my own theme? =
 
 Yes you can. If you take a look at the plugin folder, you'll see a sub-folder named `css` - in that is the CSS for each theme. Simply modify one of those to your taste then, if you'd like to share it, send it along to me and I'll look to include it in future releases, complete with its own unique name.
+
+= Do you support this plugin on forks of WordPress? =
+
+No. It was developed for WordPress and so forks remain unsupported. I have no intention of developing and testing this on any other version.
 
 == Screenshots ==
 
